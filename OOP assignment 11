@@ -1,0 +1,112 @@
+//C++ Program Using list Container
+//This program demonstrates inserting elements at the front and back, sorting, reversing, and removing an element using the STL list container.
+
+
+#include <iostream>
+#include <list>
+using namespace std;
+
+int main() {
+    list<int> numbers;
+    int n, value;
+
+    cout << "Enter number of elements: ";
+    cin >> n;
+
+    cout << "Enter " << n << " elements:\n";
+    for (int i = 0; i < n; i++) {
+        cin >> value;
+        numbers.push_back(value);
+    }
+
+    cout << "\nList elements: ";
+    for (int x : numbers)
+        cout << x << " ";
+
+    numbers.push_front(10);
+    cout << "\nAfter inserting 10 at front: ";
+    for (int x : numbers)
+        cout << x << " ";
+
+    numbers.push_back(20);
+    cout << "\nAfter inserting 20 at back: ";
+    for (int x : numbers)
+        cout << x << " ";
+
+    numbers.sort();
+    cout << "\nSorted list: ";
+    for (int x : numbers)
+        cout << x << " ";
+
+    numbers.reverse();
+    cout << "\nReversed list: ";
+    for (int x : numbers)
+        cout << x << " ";
+
+    if (!numbers.empty()) {
+        numbers.pop_front();
+        cout << "\nAfter removing first element: ";
+        for (int x : numbers)
+            cout << x << " ";
+    }
+
+    cout << "\n";
+    return 0;
+}
+
+
+//C++ Program Using vector Container
+//This program demonstrates adding and inserting elements, sorting, removing the last element, and displaying the vector's size.
+
+
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+int main() {
+    vector<int> numbers;
+    int n, value;
+
+    cout << "Enter number of elements: ";
+    cin >> n;
+
+    cout << "Enter " << n << " elements:\n";
+    for (int i = 0; i < n; i++) {
+        cin >> value;
+        numbers.push_back(value);
+    }
+
+    cout << "\nVector elements: ";
+    for (int x : numbers)
+        cout << x << " ";
+
+    numbers.push_back(50);
+    cout << "\nAfter adding 50: ";
+    for (int x : numbers)
+        cout << x << " ";
+
+    if (numbers.size() >= 2) {
+        numbers.insert(numbers.begin() + 1, 25);
+        cout << "\nAfter inserting 25 at index 1: ";
+        for (int x : numbers)
+            cout << x << " ";
+    }
+
+    sort(numbers.begin(), numbers.end());
+    cout << "\nSorted vector: ";
+    for (int x : numbers)
+        cout << x << " ";
+
+    if (!numbers.empty()) {
+        numbers.pop_back();
+        cout << "\nAfter removing last element: ";
+        for (int x : numbers)
+            cout << x << " ";
+    }
+
+    cout << "\nSize of vector: " << numbers.size();
+    cout << "\n";
+
+    return 0;
+}
